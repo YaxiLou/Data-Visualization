@@ -1,0 +1,16 @@
+---
+title: "Top University arround Los Angeles"
+date: "September 3, 2017"
+output: html_document
+---
+
+```{r,echo=FALSE,message=FALSE}
+library(leaflet)
+library(dplyr)
+df<-data.frame(lat=c(34.0689,34.0224,33.6405),
+               lng=c(-118.4452,-118.2851,-117.8443),
+               col=c("blue","red","green"),
+               stringsAsFactors = FALSE)
+df %>% leaflet() %>% addTiles() %>% addCircleMarkers(color=df$col) %>% addLegend(labels=c("UCLA","USC","UCI"),colors=c("blue","red","green"))
+```
+
